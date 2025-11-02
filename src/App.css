@@ -1,38 +1,451 @@
-.App {
+/* ========================
+   Global Reset & Layout
+======================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100dvh;
+  width: 100vw;
+  background-color: #0f172a;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ========================
+   Links & Buttons
+======================== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+}
+
+/* ========================
+   Loading Screen
+======================== */
+.loading-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100dvh;
+  width: 100vw;
+  background-color: #0f172a;
+  color: #ffffff;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.spinner {
+  width: 8vw;
+  height: 8vw;
+  max-width: 80px;
+  max-height: 80px;
+  border: 0.8vw solid rgba(255, 255, 255, 0.2);
+  border-top: 0.8vw solid #38bdf8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 2dvh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.loading-screen p {
+  font-size: 2.5vw;
+  letter-spacing: 0.05em;
+}
+
+/* ========================
+   Home Page
+======================== */
+.home-container,
+.mcq-container {
+  min-height: 100dvh;
+  width: 100vw;
+  background: linear-gradient(160deg, #0f172a, #1e293b);
+  color: white;
+  text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 3dvh 3vw;
+  overflow-x: hidden;
+}
+
+.home-header,
+.mcq-header {
+  margin-bottom: 4dvh;
+}
+
+.home-title {
+  font-size: 6vw;
+  margin-bottom: 1dvh;
+}
+
+.home-subtitle {
+  font-size: 3vw;
+  color: #94a3b8;
+  font-weight: 400;
+}
+
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2dvh;
+  width: 90vw;
+  max-width: 800px;
+}
+
+.home-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  padding: 2.5dvh 0;
   color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: 2px solid transparent;
+  transition: all 0.25s ease-in-out;
 }
 
-.App-link {
-  color: #61dafb;
+.home-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #38bdf8;
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* MCQ.css - styling for team quiz flow */
+
+.mcq-container {
+  min-height: 100dvh;
+  width: 100vw;
+  padding: 2dvh 3vw;
+  background: linear-gradient(160deg, #0f172a, #1e293b);
+  color: #fff;
+  box-sizing: border-box;
+}
+
+.mcq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 2dvh;
+}
+
+.back-button {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.8dvh 1.5vw;
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  border-radius: 10px;
+}
+
+.mcq-title {
+  flex: 1;
+  text-align: center;
+  font-size: 3.5vw;
+  margin: 0;
+}
+
+/* Team selection */
+.team-select h2 {
+  font-size: 2vw;
+  margin-bottom: 1.5dvh;
+  text-align: center;
+}
+
+.team-list {
+  display: grid;
+  gap: 1dvh;
+  width: 90vw;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, auto);
+}
+
+.team-item {
+  display: flex;
+  gap: 1vw;
+  height: 27dvh;
+  align-items: center;
+  background: rgba(255,255,255,0.04);
+  padding: 1.2dvh 1.2vw;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.team-item.selected {
+  background: rgba(56,189,248,0.12);
+  border: 1px solid rgba(56,189,248,0.25);
+}
+
+.team-name {
+  font-size: 2vw;
+}
+
+/* Start button */
+.team-actions {
+  text-align: center;
+  margin-top: 5dvh;
+}
+
+.start-button {
+  padding: 1.6dvh 3.5vw;
+  background: #38bdf8;
+  border-radius: 12px;
+  color: #0f172a;
+  font-weight: 700;
+  font-size: 2vw;
+}
+
+.start-button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Question phase */
+.question-card {
+  width: 80vw;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.03);
+  padding: 2dvh 2vw;
+  border-radius: 12px;
+}
+
+.question-header {
+  justify-content: space-between;
+  align-items: center;
+  gap: 1vw;
+  margin-bottom: 1dvh;
+}
+
+.mashwarah .mash-title {
+  font-size: 2.5vw;
+  color: #cbd5e1;
+}
+
+.mashwarah .mash-timer {
+  font-size: 3.6vw;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Question text & options */
+.question-text {
+  font-size: 2.5vw;
+  margin-bottom: 2dvh;
+  text-align: left;
+}
+
+.options-list {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1dvh;
+}
+
+.option-card {
+  padding: 1.6dvh 1.2vw;
+  background: rgba(255,255,255,0.04);
+  border-radius: 8px;
+  font-size: 2.2vw;
+}
+
+.skip-button {
+  padding: 1dvh 2vw;
+  border-radius: 8px;
+  background: #38bdf8;
+  border-radius: 10px;
+  color: #0f172a;
+  font-size: 1.2vw;
+  font-weight: 700;
+  margin-top: 1dvh;
+  cursor: pointer;
+}
+
+.skip-button:hover {
+  background: #2d96c4;
+}
+
+/* Select teams grid */
+.select-phase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2dvh;
+}
+
+.top-question-small {
+  width: 80vw;
+  background: rgba(255,255,255,0.02);
+  padding: 1.2dvh 1vw;
+  border-radius: 10px;
+  margin-bottom: 1dvh;
+}
+
+.q-mini { font-size: 2vw; text-align: left; margin-bottom: 1dvh; }
+.q-mini-options { display:flex; gap:1vw; flex-wrap:wrap; }
+
+.mini-option { font-size: 1.7vw; background: rgba(255,255,255,0.03); padding: 0.8dvh 1vw; border-radius:6px; }
+
+/* Teams grid - 2 rows layout responsive */
+.teams-grid {
+  display: grid;
+  gap: 1.2dvh;
+  width: 90vw;
+}
+
+.team-card {
+  padding: 1.2dvh 1vw;
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap: 1dvh;
+}
+
+.team-card-name { font-weight:700; font-size: 1.8vw; margin-bottom: 0.4dvh; text-align: left;}
+
+.team-choices { display:flex; gap: 1vw; }
+
+.team-choice {
+  padding: 0.8dvh 1.2vw;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.06);
+  font-size: 2vw;
+}
+
+.team-choice.picked { background: rgb(70, 142, 174); border: 1px solid rgba(0, 179, 255, 0.502); }
+
+/* reveal phase */
+.reveal-phase { display:flex; flex-direction:column; align-items:center; gap: 2dvh; }
+
+.reveal-grid {
+  display:grid;
+  width: 100%;
+  max-width: 1000px;
+  gap: 1dvh;
+}
+
+.reveal-team {
+  padding: 1.2dvh 1vw;
+  border-radius: 8px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 1vw;
+  background: rgba(255,255,255,0.03);
+}
+
+.reveal-team.correct { background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25); }
+.reveal-team.incorrect { background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.18); }
+
+.reveal-team-name { font-weight:700; font-size:2vw; }
+.reveal-team-text { font-size:2vw; }
+
+/* popup explanation (verse / translation / explanation) */
+.explain-popup {
+  width: 90vw;
+  background: rgba(0,0,0,0.6);
+  border-radius: 12px;
+  padding: 1.6dvh 1.4vw;
+  display:flex;
+  flex-direction:column;
+  gap: 1dvh;
+}
+
+@font-face {
+  font-family: 'Scheherazade New';
+  src: url('./ScheherazadeNew-Regular.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.explain-popup .verse {
+  font-size: 3vw;
+  font-family: 'Scheherazade New';
+  direction: rtl;;
+  font-weight:700;
+  color: #f8fafc;
+  text-align: center;
+}
+
+.explain-popup .translation {
+  font-size: 2vw;
+  font-style: italic;
+  color: #cbd5e1;
+  text-align: center;
+}
+
+.explain-popup .explanation {
+  margin-top: 2dvh;
+  font-size: 2vw;
+  color: #e6eef8;
+}
+
+/* actions */
+.select-actions, .reveal-actions { margin-top: 1.2dvh; }
+.reveal-button, .next-button {
+  padding: 1.6dvh 3.5vw;
+  background: #38bdf8;
+  border-radius: 10px;
+  color: #0f172a;
+  font-weight:700;
+  font-size: 2vw;
+}
+
+.reveal-button[disabled] { opacity: 0.5; cursor: not-allowed; }
+
+.scoreboard {
+  width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.score-list { margin-top: 1.6dvh; display:flex; flex-direction:column; gap: 1.2dvh; }
+.score-row { display:flex; justify-content:space-between; padding: 2.4dvh 1vw; background: rgba(255,255,255,0.03); border-radius:8px; }
+.score-team { font-weight:700; font-size: 2.2vw; }
+.score-num { font-weight:900; font-size: 2.2vw; }
+
+.home-button {
+  margin-top: 5dvh;
+  padding: 1.6dvh 3.5vw;
+  background: rgba(255,255,255,0.06);
+  border-radius: 10px;
+  font-size: 1.8vw;
+  color: #fff;
+}
+
+/* Slightly smaller height for phones */
+@media screen and (orientation: portrait) {
+  .back-button {
+    top: 0.5rem;
+    left: 0.5rem;
+    padding: 0.6dvh 2vw;
+    font-size: 3vw;
   }
-  to {
-    transform: rotate(360deg);
+
+  .team-list {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .team-item {
+    height: 12dvh;
   }
 }

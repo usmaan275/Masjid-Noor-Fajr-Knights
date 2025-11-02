@@ -60,7 +60,7 @@ const day2Questions = [
     verse:
       "قَالُوا۟ یَـٰذَا ٱلۡقَرۡنَیۡنِ إِنَّ یَأۡجُوجَ وَمَأۡجُوجَ مُفۡسِدُونَ فِی ٱلۡأَرۡضِ فَهَلۡ نَجۡعَلُ لَكَ خَرۡجًا عَلَىٰۤ أَن تَجۡعَلَ بَیۡنَنَا وَبَیۡنَهُمۡ سَدࣰّا﴿٩٤﴾",
     translation:
-      "They pleaded, \"O Dhul-Qarnayn! Indeed, Ya'juj and Ma'juj are spreading corruption. Can we pay you to build a barrier between us and them?\" (18:94)",
+      "They pleaded, “O Dhul-Qarnayn! Indeed, Ya'juj and Ma'juj are spreading corruption. Can we pay you to build a barrier between us and them?” (18:94)",
     explanation:
       "Dhul-Qarnayn built a barrier to contain Ya'juj and Ma'juj, keeping them hidden to this day.",
   },
@@ -90,7 +90,7 @@ const day2Questions = [
     verse:
       "كَذَّبَ أَصۡحَـٰبُ لۡـَٔیۡكَةِ ٱلۡمُرۡسَلِینَ﴿١٧٦﴾ إِذۡ قَالَ لَهُمۡ شُعَیۡبٌ أَلَا تَتَّقُونَ﴿١٧٧﴾",
     translation:
-      "The residents of the Forest rejected the messengers when Shuayb said, \"Will you not fear Allah?\" (26:176-177)",
+      "The residents of the Forest rejected the messengers when Shuayb said, “Will you not fear Allah?” (26:176-177)",
     explanation:
       "Prophet Shuayb عليه السلام warned the people of the forest to turn back to the worship of Allah.",
   },
@@ -101,7 +101,7 @@ const day2Questions = [
     verse:
       "فَخَرَجَ مِنۡهَا خَاۤىِٕفࣰا یَتَرَقَّبُۖ قَالَ رَبِّ نَجِّنِی مِنَ ٱلۡقَوۡمِ ٱلظَّـٰلِمِینَ﴿٢١﴾ وَلَمَّا تَوَجَّهَ تِلۡقَاۤءَ مَدۡیَنَ",
     translation:
-      "Musa left the city in fear and prayed, \"My Lord! Save me from the wrongdoing people.\" As he made his way towards Madyan ... (28:21-22)",
+      "Musa left the city in fear and prayed, “My Lord! Save me from the wrongdoing people.” As he made his way towards Madyan ... (28:21-22)",
     explanation:
       "The chiefs of Firawn were looking for Prophet Musa عليه السلام to kill him, so he left Egypt and fled to an Arab city called Madyan.",
   },
